@@ -834,6 +834,20 @@ function configure_zram_parameters() {
 	    echo lz4 > /sys/block/zram0/comp_algorithm
 	fi
 
+    # Protect a small anonymous working set and clean file cache
+    # from aggressive reclaim under memory pressure.
+    if [ -f /proc/sys/vm/anon_min_kbytes ]; then
+        echo 65536 > /proc/sys/vm/anon_min_kbytes
+    fi
+
+    if [ -f /proc/sys/vm/clean_low_kbytes ]; then
+        echo 131072 > /proc/sys/vm/clean_low_kbytes
+    fi
+
+    if [ -f /proc/sys/vm/clean_min_kbytes ]; then
+        echo 32768 > /proc/sys/vm/clean_min_kbytes
+    fi
+    
     if [ -f /sys/block/zram0/disksize ]; then
         disksize=`cat /sys/block/zram0/disksize`
         if [ $disksize -eq 0 ]; then
