@@ -847,7 +847,19 @@ function configure_zram_parameters() {
     if [ -f /proc/sys/vm/clean_min_kbytes ]; then
         echo 32768 > /proc/sys/vm/clean_min_kbytes
     fi
-    
+
+    setprop vendor.debug.anon_min_kbytes \
+        "$(cat /proc/sys/vm/anon_min_kbytes 2>/dev/null)"
+
+    setprop vendor.debug.clean_low_kbytes \
+        "$(cat /proc/sys/vm/clean_low_kbytes 2>/dev/null)"
+
+    setprop vendor.debug.clean_min_kbytes \
+        "$(cat /proc/sys/vm/clean_min_kbytes 2>/dev/null)"
+
+    setprop vendor.debug.zram_algorithm \
+        "$(cat /sys/block/zram0/comp_algorithm 2>/dev/null)"
+        
     if [ -f /sys/block/zram0/disksize ]; then
         disksize=`cat /sys/block/zram0/disksize`
         if [ $disksize -eq 0 ]; then
