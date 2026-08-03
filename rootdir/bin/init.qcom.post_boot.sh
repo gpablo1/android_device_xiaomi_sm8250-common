@@ -841,11 +841,11 @@ function configure_zram_parameters() {
     fi
 
     if [ -f /proc/sys/vm/clean_low_kbytes ]; then
-        echo 131072 > /proc/sys/vm/clean_low_kbytes
+        echo 65536 > /proc/sys/vm/clean_low_kbytes
     fi
 
     if [ -f /proc/sys/vm/clean_min_kbytes ]; then
-        echo 32768 > /proc/sys/vm/clean_min_kbytes
+        echo 16384 > /proc/sys/vm/clean_min_kbytes
     fi
 
     setprop vendor.debug.anon_min_kbytes \
