@@ -147,8 +147,6 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.xiaomi_sm8250)
 
 # Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
 
 # Consumer IR
 ifneq ($(TARGET_IS_TABLET),true)
@@ -224,6 +222,9 @@ PRODUCT_PACKAGES += \
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_kona)
+
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
 
 # Input
 PRODUCT_PACKAGES += \
@@ -349,7 +350,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/xiaomi \
