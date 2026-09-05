@@ -48,4 +48,11 @@
     <string name="thermal_dialer">Dialer</string>
     <string name="thermal_gaming">Gaming</string>
     <string name="thermal_streaming">Streaming</string>
+
+    <!-- Display -->
+    <string name="display_settings_title">Display</string>
+    <string name="display_settings_summary">Additional display features</string>
+    <string name="dc_dimming_title">Anti-flicker mode</string>
+    <string name="dc_dimming_summary">Reduce OLED flicker and eye strain at low brightness. Image quality and colors may be slightly affected.</string>
+
 </resources>
