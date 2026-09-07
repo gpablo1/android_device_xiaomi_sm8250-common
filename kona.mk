@@ -161,6 +161,12 @@ endif
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# Modular Xiaomi hardware features
+$(call inherit-product, packages/apps/XiaomiParts/parts.mk)
+
+TARGET_USE_SATURATIONSLIDER := true
+TARGET_SUPPORTS_NOTGAMETURBO := true
+
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service
