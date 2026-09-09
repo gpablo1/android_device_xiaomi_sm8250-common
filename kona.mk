@@ -166,6 +166,8 @@ $(call inherit-product, packages/apps/XiaomiParts/parts.mk)
 
 TARGET_USE_SATURATIONSLIDER := true
 TARGET_SUPPORTS_NOTGAMETURBO := true
+TARGET_USE_THERMALPROFILES := true
+TARGET_USE_HBM := true
 
 # Display
 PRODUCT_PACKAGES += \
