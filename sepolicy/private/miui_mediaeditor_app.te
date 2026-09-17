@@ -1,0 +1,21 @@
+# Xiaomi MediaEditor
+#
+# MediaEditor downloads versioned AIGC native modules into its own
+# application data directory and loads them dynamically.
+#
+# Keep this permission isolated to MediaEditor instead of granting
+# execute on app_data_file to every platform_app_36 application.
+
+type miui_mediaeditor_app, domain;
+typeattribute miui_mediaeditor_app coredomain;
+
+app_domain(miui_mediaeditor_app)
+net_domain(miui_mediaeditor_app)
+bluetooth_domain(miui_mediaeditor_app)
+
+# Match the common policy used by platform-signed applications.
+typeattribute miui_mediaeditor_app platform_app_all;
+
+# MediaEditor AIGC modules:
+# /data/user/0/com.miui.mediaeditor/files/aigc/*/*.so
+allow miui_mediaeditor_app app_data_file:file execute;

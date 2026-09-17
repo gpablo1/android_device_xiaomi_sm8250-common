@@ -3,3 +3,6 @@ user=system seinfo=platform name=org.lineageos.settings domain=devicesettings_ap
 
 #BlueTooth
 user=bluetooth seinfo=default domain=bluetooth type=bluetooth_data_file
+
+# Xiaomi MediaEditor
+user=_app seinfo=platform name=com.miui.mediaeditor domain=miui_mediaeditor_app type=app_data_file levelFrom=all
